@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Native Share</title>
+</head>
+<body>
+  <h1>Web Native Share Test</h1>
+
+  <script>
+    if (navigator.share) {
+      const $shareBtn = document.createElement('button')
+
+      $shareBtn.addEventListener('click', async e => {
+        const shareData = {
+          title: 'Web Native Share Title',
+          text: 'Share Text',
+          url: document.location.href
+        }
+
+        await navigator.share(shareData)
+      })
+
+      document.body.appendChild($shareBtn)
+    } else {
+      const $msg = document.createElement('p')
+
+      $msg.innerHTML = `Web Native Share is not available in this browser...`
+      $msg.style.color = 'red'
+
+      document.body.appendChild($msg)
+    }
+  </script>
+</body>
+</html>

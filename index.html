@@ -12,6 +12,8 @@
   <script>
     if (navigator.share) {
       const $shareBtn = document.createElement('button')
+      
+      $shareBtn.innerHTML = `Native Share !`
 
       $shareBtn.addEventListener('click', async e => {
         const shareData = {
